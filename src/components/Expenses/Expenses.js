@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ExpensesFilter from './ExpenseFilter';
+import ExpensesChart from './ExpensesChart';
 import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import './Expenses.css'
@@ -24,7 +25,7 @@ function Expenses(props){
           <Card className="expenses ">
             <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
 
-
+          <ExpensesChart expenses={filteredExpenses}/>
           {/* 
             doing it as below is aven cleaner for our JSX code, we set the content to the value we want as default and if our conditonal is met then we 
             change the content elsewhere to maintain readability 
