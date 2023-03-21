@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpenseFilter';
+import ExpensesList from './ExpensesList';
 import Card from '../UI/Card';
 import './Expenses.css'
 
@@ -16,10 +16,7 @@ function Expenses(props){
      return x.date.getFullYear().toString() === filteredYear;
    })
     
-   let expensesContent = <p className='expenses-text'> No Expenses found</p>;
-   if(filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((x) => (<ExpenseItem key={x.id} title={x.title} date={x.date} amount={x.amount}/>))
-   }
+
 
       return (
 
@@ -32,7 +29,7 @@ function Expenses(props){
             doing it as below is aven cleaner for our JSX code, we set the content to the value we want as default and if our conditonal is met then we 
             change the content elsewhere to maintain readability 
           */}
-          {expensesContent}
+          <ExpensesList items={filteredExpenses}/>
 
             {/* 
               it is common to use ternary like below. if the condition is true the part after the && will be rendered. it works the same 
